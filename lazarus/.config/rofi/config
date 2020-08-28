@@ -1,0 +1,3 @@
+rofi.font:              Fira Sans 14
+combi-hide-mode-prefix: true;
+rofi.theme:             themes/glue_pro_blue.rasi

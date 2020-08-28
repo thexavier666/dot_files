@@ -1,0 +1,7 @@
+# the following two lines give a two-line status, with the current window highlighted
+hardstatus alwayslastline
+#hardstatus string '%{= kG}[%{G}%H%? %1`%?]%{g}[%= %{= kw}%-w%{+b yk} %n*%t%?(%u)%? %{-}%+w %=%{g}][%{B}%d/%m %{W}%C%A%{g}]'
+hardstatus string '%{= kG}%{g}%= %{= kw}%-w%{+b yk} %n*%t%?(%u)%? %{-}%+w %=%{g}'
+startup_message off
+defscrollback 50000
+TERM="xterm-color"

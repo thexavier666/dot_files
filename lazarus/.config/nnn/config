@@ -1,0 +1,20 @@
+#!/bin/bash
+
+export NNN_BMS="\
+r:~/.config/nnn/mounts;\
+m:~/.config/nnn/mounts/xavier666@gopi/mounted_disks/ext_1tb/media/Music/youtube_playlists;\
+v:~/.config/nnn/mounts/xavier666@gopi/mounted_disks/ext_1tb/torrents/completed;\
+o:~/.config/nnn/mounts/xavier666@gopc/mounted_disks/ext_big/torrents/Movies;\
+s:~/.config/nnn/mounts/xavier666@gobr/Documents/coding/startpage;\
+a:~/.config/nnn/mounts/xavier666@gobr/Documents/websites/alliancefaq;\
+p:~/Pictures/wallpapers_own;\
+d:~/Downloads;"
+
+export LC_COLLATE="C"
+export NNN_FCOLORS="c1e2272e006033f7c6d6abc4"
+
+#----- UNUSED OPTIONS ---------------------------------------------------------
+
+#export NNN_COLORS="6453"
+#export NNN_FIFO=/tmp/nnn.fifo
+#export NNN_PLUG='g:_git log;f:_|feh $nnn;'
