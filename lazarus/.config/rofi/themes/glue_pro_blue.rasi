@@ -35,7 +35,7 @@
     urgent-foreground:           rgba ( 243, 132, 61, 100 % );
 }
 #window {
-    background-color: #1b2b34;
+    background-color: #011627;
     border:           8;
     border-color:     #4963F8;
     padding:          25;

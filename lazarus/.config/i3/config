@@ -13,14 +13,14 @@ set $DISPLAY_DEV_2      eDP-1
 set $INC_VAL            7
 set $INC_GAP            2
 
-set $BOR_WIDTH          2
+set $BOR_WIDTH          1
 set $BOR_SCRATCH        10
-set $GAP_INNER          10
-set $GAP_TOP            27
+set $GAP_INNER          00
+set $GAP_TOP            23
 
 # Colors
 set $CL_PRI             #4963F8
-set $CL_SCR             #1B2B34
+set $CL_SCR             #011627
 set $CL_BLK             #282828
 
 set $CL_TXT             #FFFFFF
@@ -32,7 +32,7 @@ set $mod_alt            Mod4
 
 #----------------------- i3 configuration --------------------------------------
 
-font                    pango:Space Mono Bold 9
+font                    pango:Fantasque Sans Mono Bold 9
 floating_modifier       $mod
 focus_follows_mouse     no
 
@@ -90,8 +90,8 @@ for_window[title="Settings"] floating enable
 #----------------------- autostart with i3 -------------------------------------
 
 #exec            --no-startup-id $TERMINAL --class="scratch_term"
+#exec_always     --no-startup-id $HOME/.config/picom/launch.sh
 exec_always     --no-startup-id $SCRIPT_DIR/standalone/monitor_toggle 2
-exec_always     --no-startup-id $HOME/.config/picom/launch.sh
 exec_always     --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always     --no-startup-id $HOME/.config/dunst/launch.sh
 exec_always     --no-startup-id nitrogen --restore

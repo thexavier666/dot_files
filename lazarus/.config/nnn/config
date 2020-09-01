@@ -7,7 +7,8 @@ v:~/.config/nnn/mounts/xavier666@gopi/mounted_disks/ext_1tb/torrents/completed;\
 o:~/.config/nnn/mounts/xavier666@gopc/mounted_disks/ext_big/torrents/Movies;\
 s:~/.config/nnn/mounts/xavier666@gobr/Documents/coding/startpage;\
 a:~/.config/nnn/mounts/xavier666@gobr/Documents/websites/alliancefaq;\
-p:~/Pictures/wallpapers_own;\
+p:~/Documents/coding_stuff/h2dq_plots;\
+i:~/Documents/writing/H2DQ_JOURNAL;\
 d:~/Downloads;"
 
 export LC_COLLATE="C"
