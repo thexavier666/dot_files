@@ -5,8 +5,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 
-let g:airline_theme='base16_pop'
-let g:airline_powerline_fonts = 0
+let g:airline_theme='murmur'
+let g:airline_powerline_fonts = 1
 
 call plug#end()
 
@@ -29,8 +29,6 @@ let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 
 colorscheme ron
-" Enable italics, Make sure this is immediately after colorscheme
-" https://stackoverflow.com/questions/3494435/vimrc-make-comments-italic
 highlight Comment cterm=italic
 
 map <C-o> :NERDTreeToggle<CR>
