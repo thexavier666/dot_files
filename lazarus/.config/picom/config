@@ -7,10 +7,10 @@ shadow-radius         = 12;            # The blur radius for shadows (default 12
 shadow-offset-x       = -5;            # The left offset for shadows (default -15)
 shadow-offset-y       = -5;            # The top offset for shadows (default -15)
 
-shadow-exclude = [
+#shadow-exclude = [
 #	"class_g = 'Alacritty'",
 #	"class_g = 'Polybar'"
-];
+#];
 
 #----- BLUR
 #blur-background       = false;
@@ -21,7 +21,7 @@ shadow-exclude = [
 #blur-strength         = 5;
 
 # these apps will not have blur
-blur-background-exclude = [ 
+#blur-background-exclude = [ 
 #	"class_g = 'scratch_term'",
 #	"class_g = 'Remmina'"
 #	"class_g = 'Zoom'",
@@ -33,7 +33,7 @@ blur-background-exclude = [
 #	"class_g = 'Nautilus'",
 #	"class_g = 'Alacritty'",
 #	"class_g = 'Gnome-screenshot'"
-];
+#];
 
 #----- VSYNC
 backend               = "glx";
@@ -44,8 +44,8 @@ glx-no-stencil        = true;
 #----- WORKSPACE FADING
 fading                = true;
 fade-delta            = 5;
-fade-in-step          = 0.02;
-fade-out-step         = 0.02;
+fade-in-step          = 0.03;
+fade-out-step         = 0.03;
 frame-opacity         = 1;
 inactive-dim          = 0.00;
 

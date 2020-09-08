@@ -1,23 +1,19 @@
 #----------------------- Common variables --------------------------------------
 
-set $BROWSER            firefox
-set $FILE_MANAGER       nautilus
-set $TERMINAL           alacritty
-set $EDITOR             gedit
-
 set $USER               xavier666
 set $HOME               /home/$USER
-set $SCRIPT_DIR         $HOME/Documents/scripts_dir
+
 set $DISPLAY_DEV_1      HDMI-1
 set $DISPLAY_DEV_2      eDP-1
 set $DISPLAY_MODE       2
+
 set $INC_VAL            7
 set $INC_GAP            2
 
-set $BOR_WIDTH          2
+set $BOR_WIDTH          1
 set $BOR_SCRATCH        10
 set $GAP_INNER          15
-set $GAP_TOP            22
+set $GAP_TOP            21
 set $GAP_BTM            00
 set $GAP_NULL           00
 
@@ -46,7 +42,7 @@ for_window [class="^.*"] border pixel $BOR_WIDTH
 
 #floating_maximum_size   1200 x 600
 
-## binding workspace to display
+# binding workspace to display
 workspace "1"           output $DISPLAY_DEV_1
 workspace "2"           output $DISPLAY_DEV_1
 workspace "3"           output $DISPLAY_DEV_1
@@ -62,29 +58,18 @@ gaps inner              $GAP_INNER
 gaps outer              0
 gaps horizontal         0
 gaps vertical           0
-#gaps top                $GAP_TOP
-#gaps bottom             $GAP_BTM
+gaps top                $GAP_TOP
+gaps bottom             $GAP_BTM
 gaps right              0
 gaps left               0
 
 # worspace-specific gap 
-workspace "1"           gaps top    $GAP_TOP
-workspace "2"           gaps top    $GAP_TOP
-workspace "3"           gaps top    $GAP_TOP
-workspace "4"           gaps top    $GAP_TOP
-workspace "1"           gaps bottom $GAP_BTM
-workspace "2"           gaps bottom $GAP_BTM
-workspace "3"           gaps bottom $GAP_BTM
-workspace "4"           gaps bottom $GAP_BTM
-
 workspace "5"           gaps top    $GAP_NULL
 workspace "6"           gaps top    $GAP_NULL
 workspace "7"           gaps top    $GAP_NULL
 workspace "8"           gaps top    $GAP_NULL
-workspace "5"           gaps bottom $GAP_NULL
-workspace "6"           gaps bottom $GAP_NULL
-workspace "7"           gaps bottom $GAP_NULL
-workspace "8"           gaps bottom $GAP_NULL
+
+#----------------------- window decoration -------------------------------------
 
 ## coloring of the borders of the individual windows
 # class                 border  backgr. text    indicator child_border
@@ -112,10 +97,11 @@ for_window[title="Settings"] floating enable
 #----------------------- autostart with i3 -------------------------------------
 
 #exec            --no-startup-id $TERMINAL --class="scratch_term"
-exec_always     --no-startup-id $HOME/.config/picom/launch.sh
-exec_always     --no-startup-id $SCRIPT_DIR/standalone/monitor_toggle $DISPLAY_MODE
-exec_always     --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always     --no-startup-id $HOME/.config/xrandr/config $DISPLAY_MODE
+exec_always     --no-startup-id $HOME/.config/sxhkd/launch.sh
 exec_always     --no-startup-id $HOME/.config/dunst/launch.sh
+exec_always     --no-startup-id $HOME/.config/picom/launch.sh
+exec_always     --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always     --no-startup-id nitrogen --restore
 
 #----------------------- i3 keybindings ----------------------------------------
@@ -124,7 +110,7 @@ exec_always     --no-startup-id nitrogen --restore
 bindsym $mod+Shift+q            kill
 
 # restart i3
-bindsym $mod+Shiftr            restart
+bindsym $mod+Shift+r            restart
 
 # split in horizontal orientation
 bindsym $mod+c                  split h
@@ -150,42 +136,6 @@ bindsym $mod+Shift+t            sticky toggle
 
 # move current window center
 bindsym $mod_alt+c              move position center
-
-# change focus
-bindsym $mod+h                  focus left
-bindsym $mod+j                  focus down
-bindsym $mod+k                  focus up
-bindsym $mod+l                  focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left               focus left
-bindsym $mod+Down               focus down
-bindsym $mod+Up                 focus up
-bindsym $mod+Right              focus right
-
-# move focused window
-bindsym $mod+Shift+h            move left
-bindsym $mod+Shift+j            move down
-bindsym $mod+Shift+k            move up
-bindsym $mod+Shift+l            move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left         move left
-bindsym $mod+Shift+Down         move down
-bindsym $mod+Shift+Up           move up
-bindsym $mod+Shift+Right        move right
-
-# resizing windows on the fly
-bindsym $mod+Ctrl+h             resize shrink width         1 px or 1 ppt
-bindsym $mod+Ctrl+j             resize grow height          1 px or 1 ppt
-bindsym $mod+Ctrl+k             resize shrink height        1 px or 1 ppt
-bindsym $mod+Ctrl+l             resize grow width           1 px or 1 ppt
-
-# same bindings, but for the arrow keys
-bindsym $mod+Ctrl+Left          resize shrink width         1 px or 1 ppt
-bindsym $mod+Ctrl+Down          resize grow height          1 px or 1 ppt
-bindsym $mod+Ctrl+Up            resize shrink height        1 px or 1 ppt
-bindsym $mod+Ctrl+Right         resize grow width           1 px or 1 ppt
 
 # change to RESIZE mode
 bindsym $mod+r                  mode "RESIZE"
@@ -221,110 +171,8 @@ mode "RESIZE"
     bindsym Return                  mode default
 }
 
-# dynamically changing inner and outer gaps
-bindsym $mod_alt+h              gaps inner current plus     $INC_GAP
-bindsym $mod_alt+l              gaps inner current minus    $INC_GAP
-bindsym $mod_alt+j              gaps outer current minus    $INC_GAP
-bindsym $mod_alt+k              gaps outer current plus     $INC_GAP
-
 #----------------------- workspace keybindings ---------------------------------
-
-# switch to workspace
-bindsym $mod+1                  workspace 1
-bindsym $mod+2                  workspace 2
-bindsym $mod+3                  workspace 3
-bindsym $mod+4                  workspace 4
-bindsym $mod+5                  workspace 5
-bindsym $mod+6                  workspace 6
-bindsym $mod+7                  workspace 7
-bindsym $mod+8                  workspace 8
-
-bindsym $mod+F1                 workspace 5
-bindsym $mod+F2                 workspace 6
-bindsym $mod+F3                 workspace 7
-bindsym $mod+F4                 workspace 8
-
-# move focused container to workspace
-bindsym $mod+Shift+1            move container to workspace 1
-bindsym $mod+Shift+2            move container to workspace 2
-bindsym $mod+Shift+3            move container to workspace 3
-bindsym $mod+Shift+4            move container to workspace 4
-bindsym $mod+Shift+5            move container to workspace 5
-bindsym $mod+Shift+6            move container to workspace 6
-bindsym $mod+Shift+7            move container to workspace 7
-bindsym $mod+Shift+8            move container to workspace 8
-
-bindsym $mod+Shift+F1           move container to workspace 5
-bindsym $mod+Shift+F2           move container to workspace 6
-bindsym $mod+Shift+F3           move container to workspace 7
-bindsym $mod+Shift+F4           move container to workspace 8
 
 # shift to next/previous workspace
 bindsym $mod+grave              workspace next_on_output
-bindsym $mod+Shift+grave        workspace prev_on_output
 bindsym $mod+Tab                workspace back_and_forth
-
-#----------------------- application keybindings -------------------------------
-
-# bluetooth stuff
-bindsym $mod_alt+F9             exec --no-startup-id exec $SCRIPT_DIR/rofi/bluetooth_menu
-bindsym $mod_alt+F10            exec --no-startup-id exec echo "disconnect" | bluetoothctl
-
-## changing volume
-bindsym $mod+bracketleft        exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ -5% #increase sound volume
-bindsym $mod+bracketright       exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +5% #decrease sound volume
-
-## spotify control
-bindsym $mod+F11                exec --no-startup-id spotifycli --volumedown
-bindsym $mod+F12                exec --no-startup-id spotifycli --volumeup
-bindsym $mod+F10                exec --no-startup-id spotifycli --playpause
-bindsym $mod+Shift+F11          exec --no-startup-id spotifycli --prev
-bindsym $mod+Shift+F12          exec --no-startup-id spotifycli --next
-
-# screen brightness using function keys 
-bindsym XF86MonBrightnessUp     exec light -A 2 # increase screen brightness
-bindsym XF86MonBrightnessDown   exec light -U 2 # decrease screen brightness
-
-## For CMUS only
-bindsym Print                   exec --no-startup-id cmus-remote -u
-bindsym Scroll_Lock             exec --no-startup-id cmus-remote -r
-bindsym Pause                   exec --no-startup-id cmus-remote -n
-bindsym $mod+Scroll_Lock        exec --no-startup-id cmus-remote -v -5%
-bindsym $mod+Pause              exec --no-startup-id cmus-remote -v +5%
-
-## Alacritty opacity changer 
-bindsym $mod_alt+Shift+F5       exec --no-startup-id $SCRIPT_DIR/standalone/alacritty_changer 1
-bindsym $mod_alt+Shift+F6       exec --no-startup-id $SCRIPT_DIR/standalone/alacritty_changer -1
-
-## Enable/Disable Dunst
-bindsym F11                     exec --no-startup-id notify-send "DUNST_COMMAND_RESUME"
-bindsym F12                     exec --no-startup-id notify-send "DUNST_COMMAND_PAUSE"
-
-## Scratchpad toggle
-#bindsym $mod+n                  [instance="scratch_term"] scratchpad show; [instance="scratch_term"] move position center
-
-## Hide/show polybar
-bindsym $mod+comma              exec --no-startup-id killall polybar
-bindsym $mod+period             exec --no-startup-id $HOME/.config/polybar/launch.sh
-
-#----------------------- application shortcuts ---------------------------------
-
-bindsym $mod+Return             exec --no-startup-id $TERMINAL
-bindsym $mod+Shift+o            exec --no-startup-id $BROWSER
-bindsym $mod+Shift+u            exec --no-startup-id $BROWSER -new-window --private duckduckgo.com
-bindsym $mod+Shift+i            exec --no-startup-id $BROWSER -new-window web.whatsapp.com
-bindsym $mod+Shift+p            exec --no-startup-id $FILE_MANAGER
-bindsym $mod+Shift+y            exec --no-startup-id yakyak
-bindsym $mod+d                  exec --no-startup-id rofi -show drun -display-drun " " -lines 7 -width 35 -show-icons
-bindsym $mod+s                  exec --no-startup-id $SCRIPT_DIR/rofi/power_menu
-bindsym $mod+q                  exec --no-startup-id i3lock-fancy -f Fira-Sans-Regular
-
-#----------------------- binding applications to workspace ---------------------
-
-assign [class="yakyak"]         "8"
-assign [class="Slack"]          "8"
-assign [class="zoom"]           "8"
-assign [class="TeamViewer"]     "7"
-assign [class="Steam"]          "7"
-
-#-------------------------------------------------------------------------------

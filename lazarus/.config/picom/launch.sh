@@ -11,5 +11,5 @@ do
     sleep 1
 done
 
-# Launch dunst
+# Launch picom
 $APP_NAME --experimental-backends --config $HOME/.config/$APP_NAME/config & disown

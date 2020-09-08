@@ -33,11 +33,13 @@
     spacing:                     2;
     urgent-background:           transparent;
     urgent-foreground:           rgba ( 243, 132, 61, 100 % );
+	--c-background-color:        #011627; 
+	--c-border-color:            #4963F8;
 }
 #window {
-    background-color: #011627;
+    background-color: var(--c-background-color);
+    border-color:     var(--c-border-color);
     border:           8;
-    border-color:     #4963F8;
     padding:          25;
 }
 #mainbox {

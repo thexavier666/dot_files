@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-APP_NAME=polybar
+APP_NAME=sxhkd
 
 # Terminate already running bar instances
 killall -q $APP_NAME
@@ -12,6 +12,4 @@ do
 done
 
 # Launch polybar 
-$APP_NAME -c="$HOME/.config/$APP_NAME/config.ini" bar0 & disown
-$APP_NAME -c="$HOME/.config/$APP_NAME/config.ini" bar1 & disown
-$APP_NAME -c="$HOME/.config/$APP_NAME/config.ini" bar2 & disown
+$APP_NAME -c "$HOME/.config/$APP_NAME/config_i3" & disown
