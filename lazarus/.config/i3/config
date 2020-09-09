@@ -1,16 +1,14 @@
+# i3 config file (v4)
+
 #----------------------- Common variables --------------------------------------
 
-set $USER               xavier666
-set $HOME               /home/$USER
+set $HOME               /home/xavier666
 
 set $DISPLAY_DEV_1      HDMI-1
 set $DISPLAY_DEV_2      eDP-1
 set $DISPLAY_MODE       2
 
-set $INC_VAL            7
-set $INC_GAP            2
-
-set $BOR_WIDTH          1
+set $BOR_WIDTH          2
 set $BOR_SCRATCH        10
 set $GAP_INNER          15
 set $GAP_TOP            21
@@ -26,23 +24,19 @@ set $CL_TXT             #FFFFFF
 set $CL_URG             #900000
 
 # Mod buttons
-set $mod                Mod1
-set $mod_alt            Mod4
+set $mod                Mod4
 
 #----------------------- i3 configuration --------------------------------------
 
 font                    pango:Iosevka Bold 9
-floating_modifier       $mod
 focus_follows_mouse     no
-
 default_border pixel 	$BOR_WIDTH
 
 # no title for windows AND a tiny border pixel
 for_window [class="^.*"] border pixel $BOR_WIDTH
 
-#floating_maximum_size   1200 x 600
+#----------------------- binding workspace to display --------------------------
 
-# binding workspace to display
 workspace "1"           output $DISPLAY_DEV_1
 workspace "2"           output $DISPLAY_DEV_1
 workspace "3"           output $DISPLAY_DEV_1
@@ -52,6 +46,8 @@ workspace "5"           output $DISPLAY_DEV_2
 workspace "6"           output $DISPLAY_DEV_2
 workspace "7"           output $DISPLAY_DEV_2
 workspace "8"           output $DISPLAY_DEV_2
+
+#----------------------- window gaps ------------------------------------------
 
 # creating gaps between the windows
 gaps inner              $GAP_INNER
@@ -80,12 +76,14 @@ client.urgent           $CL_PRI $CL_URG $CL_TXT $CL_PRI   $CL_PRI
 client.placeholder      $CL_BLK $CL_SCR $CL_TXT $CL_SCR   $CL_SCR
 client.background       $CL_BLK
 
-#----------------------- scratchpads -------------------------------------------
+#----------------------- autostart with i3 -------------------------------------
 
-for_window[instance="scratch_term"] floating enable
-for_window[instance="scratch_term"] resize set 925 500
-for_window[instance="scratch_term"] move scratchpad
-for_window[instance="scratch_term"] border pixel $BOR_SCRATCH
+exec_always     --no-startup-id $HOME/.config/xrandr/config $DISPLAY_MODE
+exec_always     --no-startup-id $HOME/.config/sxhkd/launch.sh
+exec_always     --no-startup-id $HOME/.config/dunst/launch.sh
+exec_always     --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always     --no-startup-id $HOME/.config/picom/launch.sh
+exec_always     --no-startup-id nitrogen --restore
 
 #----------------------- force floating ----------------------------------------
 
@@ -94,85 +92,12 @@ for_window[title="Friends List"] floating enable
 for_window[title="Kazam"] floating enable
 for_window[title="Settings"] floating enable
 
-#----------------------- autostart with i3 -------------------------------------
+#----------------------- binding applications to workspace ---------------------
 
-#exec            --no-startup-id $TERMINAL --class="scratch_term"
-exec_always     --no-startup-id $HOME/.config/xrandr/config $DISPLAY_MODE
-exec_always     --no-startup-id $HOME/.config/sxhkd/launch.sh
-exec_always     --no-startup-id $HOME/.config/dunst/launch.sh
-exec_always     --no-startup-id $HOME/.config/picom/launch.sh
-exec_always     --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always     --no-startup-id nitrogen --restore
+assign [class="yakyak"]                 "8"
+assign [class="Slack"]                  "8"
+assign [class="zoom"]                   "8"
+assign [class="TeamViewer"]             "7"
+assign [class="Steam"]                  "7"
 
-#----------------------- i3 keybindings ----------------------------------------
-
-# kill current container
-bindsym $mod+Shift+q            kill
-
-# restart i3
-bindsym $mod+Shift+r            restart
-
-# split in horizontal orientation
-bindsym $mod+c                  split h
-
-# split in vertical orientation
-bindsym $mod+v                  split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f                  fullscreen toggle
-
-# change container layout (tabbed, toggle split)
-bindsym $mod+w                  layout tabbed
-bindsym $mod+e                  layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space        floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space              focus mode_toggle
-
-# toggle current window sticky
-bindsym $mod+Shift+t            sticky toggle
-
-# move current window center
-bindsym $mod_alt+c              move position center
-
-# change to RESIZE mode
-bindsym $mod+r                  mode "RESIZE"
-
-mode "RESIZE"
-{
-    # resizing windows on the fly
-    bindsym $mod+Ctrl+h             resize shrink width         $INC_VAL px or $INC_VAL ppt
-    bindsym $mod+Ctrl+j             resize grow height          $INC_VAL px or $INC_VAL ppt
-    bindsym $mod+Ctrl+k             resize shrink height        $INC_VAL px or $INC_VAL ppt
-    bindsym $mod+Ctrl+l             resize grow width           $INC_VAL px or $INC_VAL ppt
-    
-    # same bindings, but for the arrow keys
-    bindsym $mod+Ctrl+Left          resize shrink width         $INC_VAL px or $INC_VAL ppt
-    bindsym $mod+Ctrl+Down          resize grow height          $INC_VAL px or $INC_VAL ppt
-    bindsym $mod+Ctrl+Up            resize shrink height        $INC_VAL px or $INC_VAL ppt
-    bindsym $mod+Ctrl+Right         resize grow width           $INC_VAL px or $INC_VAL ppt
-
-    # move focused window
-    bindsym $mod+Shift+h            move left
-    bindsym $mod+Shift+j            move down
-    bindsym $mod+Shift+k            move up
-    bindsym $mod+Shift+l            move right
-
-    # alternatively, you can use the cursor keys:
-    bindsym $mod+Shift+Left         move left
-    bindsym $mod+Shift+Down         move down
-    bindsym $mod+Shift+Up           move up
-    bindsym $mod+Shift+Right        move right
-
-    # escape to default mode
-    bindsym Escape                  mode default
-    bindsym Return                  mode default
-}
-
-#----------------------- workspace keybindings ---------------------------------
-
-# shift to next/previous workspace
-bindsym $mod+grave              workspace next_on_output
-bindsym $mod+Tab                workspace back_and_forth
+#-------------------------------------------------------------------------------

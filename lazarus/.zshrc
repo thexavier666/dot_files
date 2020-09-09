@@ -98,7 +98,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-SCRIPT_DIR=$HOME/Documents/scripts_dir
+export SCRIPT_DIR=$HOME/Documents/scripts_dir
+
 source $SCRIPT_DIR/all_alias.sh
 source $SCRIPT_DIR/all_servers.sh
+#source $SCRIPT_DIR/all_variables.sh
 source $HOME/.config/nnn/config

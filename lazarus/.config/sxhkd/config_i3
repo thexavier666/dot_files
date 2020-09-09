@@ -10,16 +10,16 @@ alt + Escape
 #------------------------------------------------------------------------------
 
 alt + Return
-	alacritty
+	$TERMINAL
 
 alt + shift + o
-	firefox
+	$BROWSER
 
 alt + shift + i
-	firefox -new-window web.whatsapp.com
+	$BROWSER -new-window web.whatsapp.com
 
 alt + shift + p
-	nautilus
+	$FILE_MANAGER
 
 alt + shift + y
 	yakyak
@@ -28,13 +28,13 @@ alt + q
 	i3lock-fancy -f Fira-Sans-Regular
 
 #------------------------------------------------------------------------------
-#----- custom applications
+#----- control other applications
 #------------------------------------------------------------------------------
 
 #---------- bluetooth
 
 super + F9
-	/home/xavier666/Documents/scripts_dir/rofi/bluetooth_menu
+	$SXHKD_SCRIPT_DIR/rofi/bluetooth_menu
 
 super + F10
 	echo 'disconnect' | bluetoothctl
@@ -53,7 +53,7 @@ alt + comma
 	killall polybar
 
 alt + period
-	/home/xavier666/.config/polybar/launch.sh
+	$SXHKD_CONFIG_DIR/polybar/launch.sh
 
 #---------- dunst
 
@@ -63,13 +63,50 @@ F11
 F12
 	notify-send "DUNST_COMMAND_PAUSE"
 
-#--------- rofi scripts
+#--------- rofi menu
 
 alt + d
 	rofi -show drun -display-drun " " -lines 7 -width 35 -show-icons
 
 alt + s
-	/home/xavier666/Documents/scripts_dir/rofi/power_menu
+	$SXHKD_SCRIPT_DIR/rofi/power_menu
+
+#------------------------------------------------------------------------------
+#----- wm misc
+#------------------------------------------------------------------------------
+
+alt + shift + q
+	i3-msg kill
+
+alt + shift + r
+	i3-msg restart
+
+alt + c
+	i3-msg split h
+
+alt + v
+	i3-msg split v
+
+alt + w
+	i3-msg layout tabbed
+
+alt + e
+	i3-msg layout toggle split
+
+alt + f
+	i3-msg fullscreen toggle
+
+alt + shift + space
+	i3-msg floating toggle
+
+alt + shift + t
+	i3-msg sticky toggle
+
+alt + space
+	i3-msg focus mode_toggle
+
+super + c
+	i3-msg move position center
 
 #------------------------------------------------------------------------------
 #----- wm window change focus
@@ -88,6 +125,15 @@ alt + {Left,Down,Up,Right}
 alt + {1-8}
 	i3-msg workspace {1-8}
 
+alt + F{1-4}
+	i3-msg workspace {5-8}
+
+alt + grave
+	i3-msg workspace next_on_output
+
+alt + Tab
+	i3-msg workspace back_and_forth
+
 #------------------------------------------------------------------------------
 #----- wm window movement
 #------------------------------------------------------------------------------
@@ -101,6 +147,9 @@ alt + shift + {Left,Down,Up,Right}
 alt + shift + {1-8}
 	i3-msg move container to workspace {1-8}
 
+alt + shift + F{1-4}
+	i3-msg move container to workspace {5-8}
+
 #------------------------------------------------------------------------------
 #----- wm window size adjustment
 #------------------------------------------------------------------------------
@@ -112,10 +161,10 @@ alt + ctrl + {j,Down}
 	i3-msg resize grow height 1 px or 1 ppt
 
 alt + ctrl + {k,Up}
-	i3-msg resize shrink width 1 px or 1 ppt
+	i3-msg resize shrink height 1 px or 1 ppt
 
 alt + ctrl + {l,Right}
-	i3-msg resize grow height 1 px or 1 ppt
+	i3-msg resize grow width 1 px or 1 ppt
 
 #------------------------------------------------------------------------------
 #----- i3 gap adjustment
