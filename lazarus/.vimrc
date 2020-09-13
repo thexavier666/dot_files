@@ -6,7 +6,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 
 let g:airline_theme='murmur'
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 
 call plug#end()
 

@@ -10,8 +10,8 @@ set $DISPLAY_MODE       2
 
 set $BOR_WIDTH          2
 set $BOR_SCRATCH        10
-set $GAP_INNER          15
-set $GAP_TOP            21
+set $GAP_INNER          8
+set $GAP_TOP            28
 set $GAP_BTM            00
 set $GAP_NULL           00
 
@@ -19,7 +19,6 @@ set $GAP_NULL           00
 set $CL_PRI             #4963F8
 set $CL_SCR             #011627
 set $CL_BLK             #282828
-
 set $CL_TXT             #FFFFFF
 set $CL_URG             #900000
 
@@ -41,6 +40,8 @@ workspace "1"           output $DISPLAY_DEV_1
 workspace "2"           output $DISPLAY_DEV_1
 workspace "3"           output $DISPLAY_DEV_1
 workspace "4"           output $DISPLAY_DEV_1
+workspace "9"           output $DISPLAY_DEV_1
+workspace "0"           output $DISPLAY_DEV_1
 
 workspace "5"           output $DISPLAY_DEV_2
 workspace "6"           output $DISPLAY_DEV_2
@@ -87,17 +88,17 @@ exec_always     --no-startup-id nitrogen --restore
 
 #----------------------- force floating ----------------------------------------
 
-for_window[title="Steam - News"] floating enable
-for_window[title="Friends List"] floating enable
-for_window[title="Kazam"] floating enable
-for_window[title="Settings"] floating enable
+for_window [title="Steam - News"]   floating enable
+for_window [title="Friends List"]   floating enable
+for_window [title="Kazam"]          floating enable
+for_window [title="Settings"]       floating enable
 
 #----------------------- binding applications to workspace ---------------------
 
-assign [class="yakyak"]                 "8"
-assign [class="Slack"]                  "8"
-assign [class="zoom"]                   "8"
-assign [class="TeamViewer"]             "7"
-assign [class="Steam"]                  "7"
+assign [class="yakyak"]             "8"
+assign [class="Slack"]              "8"
+assign [class="zoom"]               "8"
+assign [class="TeamViewer"]         "7"
+assign [class="Steam"]              "7"
 
 #-------------------------------------------------------------------------------

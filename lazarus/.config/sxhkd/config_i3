@@ -122,8 +122,8 @@ alt + {Left,Down,Up,Right}
 #----- wm change workspace 
 #------------------------------------------------------------------------------
 
-alt + {1-8}
-	i3-msg workspace {1-8}
+alt + {1-9,0}
+	i3-msg workspace {1-9,10}
 
 alt + F{1-4}
 	i3-msg workspace {5-8}
@@ -144,8 +144,8 @@ alt + shift + {h,j,k,l}
 alt + shift + {Left,Down,Up,Right}
 	i3-msg move {left,down,up,right}
 
-alt + shift + {1-8}
-	i3-msg move container to workspace {1-8}
+alt + shift + {1-9,0}
+	i3-msg move container to workspace {1-9,10}
 
 alt + shift + F{1-4}
 	i3-msg move container to workspace {5-8}
@@ -171,15 +171,15 @@ alt + ctrl + {l,Right}
 #------------------------------------------------------------------------------
 
 super + h
-	i3-msg gaps inner current plus 2 
+	i3-msg gaps outer current plus 2 
 
 super + j
-	i3-msg gaps outer current minus 2
+	i3-msg gaps inner current minus 2
 
 super + k
-	i3-msg gaps outer current plus 2
+	i3-msg gaps inner current plus 2
 
 super + l
-	i3-msg gaps inner current minus 2
+	i3-msg gaps outer current minus 2
 
 #------------------------------------------------------------------------------
