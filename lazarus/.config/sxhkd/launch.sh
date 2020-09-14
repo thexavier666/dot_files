@@ -2,7 +2,7 @@
 
 export TERMINAL="alacritty"
 export BROWSER="firefox"
-export FILE_MANGER="thunar"
+export FILE_MANAGER="thunar"
 export SXHKD_SCRIPT_DIR="$HOME/Documents/scripts_dir"
 export SXHKD_CONFIG_DIR="$HOME/.config"
 

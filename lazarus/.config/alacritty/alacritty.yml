@@ -119,7 +119,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 10.0
+  size: 11.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -153,42 +153,29 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true 
 
-# Colors (Nightfly)
+# Colors (substrata)
 colors:
-   # Default colors
   primary:
-     background: '#011627'
-     foreground: '#acb4c2'
-
-  cursor:
-    text: '#fafafa'
-    cursor: '#9ca1aa'
-
-  selection:
-    text: '#080808'
-    background: '#b2ceee'
-
-   # Normal colors
+    background: '#191c25'
+    foreground: '#b5b4c9'
   normal:
-    black:   '#1d3b53'
-    red:     '#fc514e'
-    green:   '#a1cd5e'
-    yellow:  '#e3d18a'
-    blue:    '#82aaff'
-    magenta: '#c792ea'
-    cyan:    '#7fdbca'
-    white:   '#a1aab8'
-
-   # Bright colors
+    black:   '#2e313d'
+    red:     '#cf8164'
+    green:   '#76a065'
+    yellow:  '#ab924c'
+    blue:    '#8296b0'
+    magenta: '#a18daf'
+    cyan:    '#659ea2'
+    white:   '#b5b4c9'
   bright:
-    black:   '#7c8f8f'
-    red:     '#ff5874'
-    green:   '#21c7a8'
-    yellow:  '#ecc48d'
-    blue:    '#82aaff'
-    magenta: '#ae81ff'
-    cyan:    '#7fdbca'
-    white:   '#d6deeb'
+    black:   '#5b5f71'
+    red:     '#fe9f7c'
+    green:   '#92c47e'
+    yellow:  '#d2b45f'
+    blue:    '#a0b9d8'
+    magenta: '#c6aed7'
+    cyan:    '#7dc2c7'
+    white:   '#f0ecfe'
 
 # Visual Bell
 #
