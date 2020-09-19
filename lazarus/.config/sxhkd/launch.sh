@@ -5,6 +5,9 @@ export BROWSER="firefox"
 export FILE_MANAGER="thunar"
 export SXHKD_SCRIPT_DIR="$HOME/Documents/scripts_dir"
 export SXHKD_CONFIG_DIR="$HOME/.config"
+export i3_GAP_INNER=8
+export i3_GAP_DELTA=2
+export i3_RESIZE_DELTA=1
 
 APP_NAME=sxhkd
 
@@ -18,4 +21,4 @@ do
 done
 
 # Launch polybar 
-$APP_NAME -c "$HOME/.config/$APP_NAME/config_i3" & disown
+$APP_NAME -c "$HOME/.config/$APP_NAME/config_i3" "$HOME/.config/$APP_NAME/config_common" & disown

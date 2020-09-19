@@ -1,78 +1,5 @@
 #------------------------------------------------------------------------------
-#----- SXHKD SPECIFIC
-#------------------------------------------------------------------------------
-
-alt + Escape
-	pkill -USR1 -x sxhkd
-
-#------------------------------------------------------------------------------
-#----- APPLICATIONS
-#------------------------------------------------------------------------------
-
-alt + Return
-	$TERMINAL
-
-alt + shift + o
-	$BROWSER
-
-alt + shift + i
-	$BROWSER -new-window web.whatsapp.com
-
-alt + shift + p
-	$FILE_MANAGER
-
-alt + shift + y
-	yakyak
-
-alt + q
-	i3lock-fancy -f Fira-Sans-Regular
-
-#------------------------------------------------------------------------------
-#----- CONTROL OTHER APPLICATIONS
-#------------------------------------------------------------------------------
-
-#---------- bluetooth
-
-super + F9
-	$SXHKD_SCRIPT_DIR/rofi/bluetooth_menu
-
-super + F10
-	echo 'disconnect' | bluetoothctl
-
-#---------- adjust volume
-
-alt + bracketleft
-	pactl -- set-sink-volume @DEFAULT_SINK@ -5%
-
-alt + bracketright
-	pactl -- set-sink-volume @DEFAULT_SINK@ +5%
-
-#---------- polybar
-
-alt + comma
-	killall polybar
-
-alt + period
-	$SXHKD_CONFIG_DIR/polybar/launch.sh
-
-#---------- dunst
-
-F11
-	notify-send "DUNST_COMMAND_RESUME"
-
-F12
-	notify-send "DUNST_COMMAND_PAUSE"
-
-#--------- rofi menu
-
-alt + d
-	rofi -show drun -display-drun " " -lines 7 -width 35 -show-icons
-
-alt + s
-	$SXHKD_SCRIPT_DIR/rofi/power_menu
-
-#------------------------------------------------------------------------------
-#----- WM MISC
+#----- WINDOW LAYOUT
 #------------------------------------------------------------------------------
 
 alt + shift + q
@@ -109,7 +36,7 @@ super + c
 	i3-msg move position center
 
 #------------------------------------------------------------------------------
-#----- WM WINDOW CHANGE FOCUS
+#----- WINDOW CHANGE FOCUS
 #------------------------------------------------------------------------------
 
 alt + {h,j,k,l}
@@ -119,7 +46,7 @@ alt + {Left,Down,Up,Right}
 	i3-msg focus {left,down,up,right}
 
 #------------------------------------------------------------------------------
-#----- WM CHANGE WORKSPACE 
+#----- CHANGE WORKSPACE 
 #------------------------------------------------------------------------------
 
 alt + {1-9,0}
@@ -135,7 +62,7 @@ alt + Tab
 	i3-msg workspace back_and_forth
 
 #------------------------------------------------------------------------------
-#----- WM WINDOW MOVEMENT
+#----- WINDOW MOVEMENT
 #------------------------------------------------------------------------------
 
 alt + shift + {h,j,k,l}
@@ -151,35 +78,38 @@ alt + shift + F{1-4}
 	i3-msg move container to workspace {5-8}
 
 #------------------------------------------------------------------------------
-#----- WM WINDOW SIZE ADJUSTMENT
+#----- WINDOW SIZE ADJUSTMENT
 #------------------------------------------------------------------------------
 
 alt + ctrl + {h,Left}
-	i3-msg resize shrink width 1 px or 1 ppt
+	i3-msg resize shrink width  $i3_RESIZE_DELTA px or $i3_RESIZE_DELTA ppt
 
 alt + ctrl + {j,Down}
-	i3-msg resize grow height 1 px or 1 ppt
+	i3-msg resize grow   height $i3_RESIZE_DELTA px or $i3_RESIZE_DELTA ppt
 
 alt + ctrl + {k,Up}
-	i3-msg resize shrink height 1 px or 1 ppt
+	i3-msg resize shrink height $i3_RESIZE_DELTA px or $i3_RESIZE_DELTA ppt
 
 alt + ctrl + {l,Right}
-	i3-msg resize grow width 1 px or 1 ppt
+	i3-msg resize grow   width  $i3_RESIZE_DELTA px or $i3_RESIZE_DELTA ppt
 
 #------------------------------------------------------------------------------
-#----- WM WINDOW GAP ADJUSTMENT
+#----- WINDOW GAP ADJUSTMENT
 #------------------------------------------------------------------------------
 
 super + h
-	i3-msg gaps outer current plus 2 
+	i3-msg gaps outer current plus  $i3_GAP_DELTA 
 
 super + j
-	i3-msg gaps inner current minus 2
+	i3-msg gaps inner current minus $i3_GAP_DELTA
 
 super + k
-	i3-msg gaps inner current plus 2
+	i3-msg gaps inner current plus  $i3_GAP_DELTA
 
 super + l
-	i3-msg gaps outer current minus 2
+	i3-msg gaps outer current minus $i3_GAP_DELTA
+
+super + shift + 0
+	i3-msg gaps inner current set $i3_GAP_INNER
 
 #------------------------------------------------------------------------------

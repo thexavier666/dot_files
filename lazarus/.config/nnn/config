@@ -2,11 +2,12 @@
 
 export NNN_BMS="\
 r:~/.config/nnn/mounts;\
-m:~/.config/nnn/mounts/xavier666@gopi/mounted_disks/ext_1tb/media/Music/youtube_playlists;\
-v:~/.config/nnn/mounts/xavier666@gopi/mounted_disks/ext_1tb/torrents/completed;\
-o:~/.config/nnn/mounts/xavier666@gopc/mounted_disks/ext_big/torrents/Movies;\
-s:~/.config/nnn/mounts/xavier666@gobr/Documents/coding/startpage;\
-a:~/.config/nnn/mounts/xavier666@gobr/Documents/websites/alliancefaq;\
+m:~/.config/nnn/mounts/gopi/mounted_disks/ext_1tb/media/Music/youtube_playlists;\
+v:~/.config/nnn/mounts/gopi/mounted_disks/ext_1tb/torrents/completed;\
+o:~/.config/nnn/mounts/gopc/mounted_disks/ext_big/torrents/Movies;\
+s:~/.config/nnn/mounts/gobr/Documents/coding/startpage;\
+a:~/.config/nnn/mounts/gobr/Documents/websites/alliancefaq;\
+P:~/Pictures/wallpapers_own;\
 p:~/Documents/coding_stuff/h2dq_plots;\
 i:~/Documents/writing/H2DQ_JOURNAL;\
 d:~/Downloads;"

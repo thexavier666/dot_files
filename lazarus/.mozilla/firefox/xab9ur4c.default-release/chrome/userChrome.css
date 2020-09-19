@@ -1,7 +1,7 @@
 /*
- *	PRIMARY COLOR   | #011627 | PRMCLR
- *	SECONDARY COLOR | #022746 | SCRCLR
- *	ACCENT COLOR    | #4963F8 | ACCCLR
+ *	PRIMARY COLOR   | #191C25 | PRMCLR
+ *	SECONDARY COLOR | #181A25 | SCRCLR
+ *	ACCENT COLOR    | #17917A | ACCCLR
  */
 
 * {
@@ -20,7 +20,7 @@ window,
 toolbar {
   /*base color*/
   /*PRMCLR*/
-  background-color:	    #011627 !important;
+  background-color:	    #191C25 !important;
   -moz-appearance:      none !important;
   background-image:     none !important;
   border:               none !important;
@@ -29,7 +29,7 @@ toolbar {
 .tab-background[selected="true"] {
   /*accent color*/
   /*ACCCLR*/
-  background-color:     #4963F8 !important;
+  background-color:     #17917A !important;
   -moz-appearance:      none !important;
   background-image:     none !important;
   border:               none !important;
@@ -37,7 +37,7 @@ toolbar {
 
 .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"]) {
   /*SCRCLR*/
-  background-color:     #022746 !important;
+  background-color:     #181A25 !important;
   -moz-appearance:      none !important;
   background-image:     none !important;
   border:               none !important;
@@ -45,7 +45,7 @@ toolbar {
 
 .tab-background {
   /*tab corner radius*/
-  border-radius: 		15px !important;
+  border-radius: 		4px !important;
 }
 
 .tab-line{
@@ -114,7 +114,7 @@ toolbar {
 #urlbar-results {
   /*search bar background*/
   /*SCRCLR*/
-  background-color: 	#022746 !important;
+  background-color: 	#181A25 !important;
   border-radius: 		15px !important;
 }
 
@@ -130,11 +130,11 @@ toolbar {
 #urlbar ::-moz-selection,
 .searchbar-textbox ::-moz-selection {
   /*ACCCLR*/
-  background-color: 	#4963F8 !important;
+  background-color: 	#17917A !important;
   color: 				#000 !important;
 }
 
 #tabbrowser-tabpanels{
   /*PRMCLR*/
-  background-color: 	#011627 !important;
+  background-color: 	#191C25 !important;
 }

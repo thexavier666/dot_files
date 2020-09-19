@@ -34,7 +34,7 @@
     urgent-background:           transparent;
     urgent-foreground:           rgba ( 243, 132, 61, 100 % );
 	--c-background-color:        #191c25; 
-	--c-border-color:            #43a047;
+	--c-border-color:            #17917A;
 }
 #window {
     background-color: var(--c-background-color);

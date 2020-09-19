@@ -1,0 +1,75 @@
+#------------------------------------------------------------------------------
+#----- LAUNCHING APPLICATIONS
+#------------------------------------------------------------------------------
+
+alt + Return
+	$TERMINAL
+
+alt + shift + o
+	$BROWSER
+
+alt + shift + i
+	$BROWSER -new-window web.whatsapp.com
+
+alt + shift + p
+	$FILE_MANAGER
+
+alt + shift + y
+	yakyak
+
+alt + shift + n
+	nitrogen
+
+#------------------------------------------------------------------------------
+#----- CONTROL OTHER APPLICATIONS
+#------------------------------------------------------------------------------
+
+#---------- bluetooth
+
+super + F9
+	$SXHKD_SCRIPT_DIR/rofi/bluetooth_menu
+
+super + F10
+	echo 'disconnect' | bluetoothctl
+
+#---------- adjust volume
+
+alt + bracketleft
+	pactl -- set-sink-volume @DEFAULT_SINK@ -5%
+
+alt + bracketright
+	pactl -- set-sink-volume @DEFAULT_SINK@ +5%
+
+#---------- polybar
+
+alt + comma
+	killall polybar
+
+alt + period
+	$SXHKD_CONFIG_DIR/polybar/launch.sh
+
+#---------- dunst
+
+F11
+	notify-send "DUNST_COMMAND_RESUME"
+
+F12
+	notify-send "DUNST_COMMAND_PAUSE"
+
+#--------- rofi menu
+
+alt + d
+	rofi -show drun -display-drun " " -lines 7 -width 35 -show-icons
+
+alt + s
+	$SXHKD_SCRIPT_DIR/rofi/power_menu
+
+#---------- lockscreen
+
+alt + q
+	i3lock-fancy -f Fira-Sans-Regular
+
+#---------- sxhkd
+
+alt + Escape
+	pkill -USR1 -x sxhkd
