@@ -26,19 +26,16 @@ alt + shift + n
 
 #---------- bluetooth
 
-super + F9
+F9
 	$SXHKD_SCRIPT_DIR/rofi/bluetooth_menu
 
-super + F10
+F10
 	echo 'disconnect' | bluetoothctl
 
 #---------- adjust volume
 
-alt + bracketleft
-	pactl -- set-sink-volume @DEFAULT_SINK@ -5%
-
-alt + bracketright
-	pactl -- set-sink-volume @DEFAULT_SINK@ +5%
+alt + {bracketleft,bracketright}
+	pactl -- set-sink-volume @DEFAULT_SINK@ {-5%,+5%}
 
 #---------- polybar
 

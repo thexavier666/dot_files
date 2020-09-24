@@ -8,11 +8,11 @@ set $HOME               /home/xavier666
 
 set $DISPLAY_DEV_1      HDMI-1
 set $DISPLAY_DEV_2      eDP-1
-set $DISPLAY_MODE       0
+set $DISPLAY_MODE       1
 
 set $BOR_WIDTH          2
 set $GAP_INNER          8
-set $GAP_TOP            30
+set $GAP_TOP            29
 set $GAP_NULL           00
 
 #-------------------------------------------------------------------------------
