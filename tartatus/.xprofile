@@ -1,0 +1,59 @@
+#!/bin/bash
+
+#-------------------------------------------------------------------------------
+#----- variables 
+#-------------------------------------------------------------------------------
+
+export TERMINAL="alacritty"
+export BROWSER="firefox"
+export FILE_MANAGER="nautilus"
+export SCRIPT_DIR="$HOME/Documents/scripts"
+export CONFIG_DIR="$HOME/.config"
+export i3_GAP_INNER=8
+export i3_GAP_DELTA=2
+export i3_RESIZE_DELTA=1
+
+export FONT_NAME=""
+export FONT_NAME_ALT="Hasklig"
+
+DISPLAY_SETTING=2
+DISPLAY_ROTATION=normal
+
+#-------------------------------------------------------------------------------
+#----- setting display
+#-------------------------------------------------------------------------------
+
+$CONFIG_DIR/xrandr/config $DISPLAY_SETTING $DISPLAY_ROTATION
+
+#-------------------------------------------------------------------------------
+#----- wallpaper
+#-------------------------------------------------------------------------------
+
+nitrogen --restore
+
+#-------------------------------------------------------------------------------
+#----- notifications
+#-------------------------------------------------------------------------------
+
+dunst -config $CONFIG_DIR/dunst/config.ini & disown
+
+#-------------------------------------------------------------------------------
+#----- compositor 
+#-------------------------------------------------------------------------------
+
+picom --experimental-backends --config $CONFIG_DIR/picom/config & disown
+
+#-------------------------------------------------------------------------------
+#----- keybinds
+#-------------------------------------------------------------------------------
+
+sxhkd -c $CONFIG_DIR/sxhkd/config_common $CONFIG_DIR/sxhkd/config_i3 & disown
+
+#-------------------------------------------------------------------------------
+#----- status bar
+#-------------------------------------------------------------------------------
+
+#polybar -c="$CONFIG_DIR/polybar/config.ini" bar0 & disown
+#polybar -c="$CONFIG_DIR/polybar/config.ini" bar2 & disown
+
+#-------------------------------------------------------------------------------

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+export NNN_BMS="\
+r:~/.config/nnn/mounts;\
+o:~/.config/nnn/mounts/gopc/mounted_disks/ext_big/torrents/Movies;\
+m:~/.config/nnn/mounts/gobr/mounted_disks/ext_1tb/media/Music/youtube_playlists;\
+v:~/.config/nnn/mounts/gobr/mounted_disks/ext_1tb/torrents/completed;\
+V:~/.config/nnn/mounts/gobr/mounted_disks/ext_1tb/media/Movies;\
+c:~/.local/share/multimc/instances/1.16.5/.minecraft;\
+P:~/Pictures/wallpaper_own;\
+i:~/Documents/writing/research/sumitro-bhaumik-thesis-2020;\
+s:~/Documents/writing/research/2017-phdregreport-sumitro/synopsis_report;\
+d:~/Downloads;"
+
+export LC_COLLATE="C"
+export NNN_FCOLORS="c1e2272e006033f7c6d6abc4"
+export NNN_PLUG='v:imgview'
+
+#----- UNUSED OPTIONS ---------------------------------------------------------
+
+#export NNN_COLORS="6453"
+#export NNN_FIFO=/tmp/nnn.fifo
+#export NNN_PLUG='g:_git log;f:_|feh $nnn;'

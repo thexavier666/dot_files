@@ -1,0 +1,83 @@
+#------------------------------------------------------------------------------
+#----- LAUNCHING APPLICATIONS
+#------------------------------------------------------------------------------
+
+alt + {Return, KP_Enter}
+	{$TERMINAL, $TERMINAL}
+
+alt + shift + o
+	$BROWSER
+
+alt + shift + i
+	$BROWSER -private
+
+alt + shift + u
+	flatpak run org.chromium.Chromium
+
+alt + shift + p
+	$FILE_MANAGER
+
+alt + shift + y
+	yakyak
+
+alt + shift + n
+	nitrogen
+
+#------------------------------------------------------------------------------
+#----- CONTROL OTHER APPLICATIONS
+#------------------------------------------------------------------------------
+
+#---------- bluetooth
+
+F9
+	$SCRIPT_DIR/rofi/bluetooth_menu
+
+F10
+	echo 'disconnect' | bluetoothctl
+
+#---------- dunst
+
+F11
+	notify-send "DUNST_COMMAND_RESUME"
+
+F12
+	notify-send "DUNST_COMMAND_PAUSE"
+
+alt + F12
+	killall dunst && dunst -config $CONFIG_DIR/dunst/config.ini & disown
+
+#---------- adjust volume
+
+alt + {bracketleft,bracketright}
+	pactl -- set-sink-volume @DEFAULT_SINK@ {-5%,+5%}
+
+#---------- polybar
+
+alt + comma
+	killall polybar
+
+alt + period
+	$CONFIG_DIR/polybar/launch.sh
+
+#--------- rofi menu
+
+alt + d
+	rofi -show drun -display-drun " " -lines 7 -width 35 -show-icons
+
+alt + s
+	$SCRIPT_DIR/rofi/power_menu
+
+alt + m
+	$SCRIPT_DIR/rofi/monitor_menu
+
+#---------- lockscreen
+
+alt + q
+	i3lock-fancy -f $FONT_NAME_ALT 
+
+#---------- refresh sxhkd
+
+alt + Escape
+	pkill -USR1 -x sxhkd
+
+#------------------------------------------------------------------------------

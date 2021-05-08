@@ -1,0 +1,40 @@
+#!/bin/bash
+
+DISPLAY_DEV_1="DP-1"
+DISPLAY_DEV_2="VGA-1"
+
+RES_1="1920x1080"
+RES_2="1366x768"
+
+#ROTATION_MODE="left"
+#ROTATION_MODE="normal"
+ROTATION_MODE=$2
+
+OFFSET=""
+
+if [[ $ROTATION_MODE == "normal" ]]; then
+	OFFSET="-1366x0"
+elif [[ $ROTATION_MODE == "left" ]]; then
+	OFFSET="-768x0"
+else
+	echo "INCORRECT ROTATION MODE"
+fi
+
+if [ $# -ne 2 ]; then
+    echo "USAGE: ./monitor_toggle 0/1/2 left/normal"
+    echo "      0 - only DEV_2 on"
+    echo "      1 - only DEV_1 on"
+    echo "      2 - both DEV_1 and DEV_2 on"
+elif [ $1 -eq 0 ]; then
+    xrandr --output $DISPLAY_DEV_1 --off
+    xrandr --output $DISPLAY_DEV_2 --mode $RES_2
+elif [ $1 -eq 1 ]; then
+    xrandr --output $DISPLAY_DEV_2 --off
+    xrandr --output $DISPLAY_DEV_1 --mode $RES_1
+elif [ $1 -eq 2 ]; then
+    xrandr \
+        --output $DISPLAY_DEV_1 --primary --mode $RES_1 --pos 0x0 --rate 60 \
+        --output $DISPLAY_DEV_2 --mode $RES_2 --pos $OFFSET --rate 100 --rotate $ROTATION_MODE
+else
+    echo "INCORRECT PARAMETERS"
+fi

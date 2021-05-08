@@ -1,0 +1,68 @@
+#----- BACKEND ----------------------------------------------------------------
+
+backend               = "glx";
+vsync                 = true;
+
+#----- SHADOW -----------------------------------------------------------------
+
+shadow                = false;	# Enabled client-side shadows on windows
+shadow-radius         = 0;      # The blur radius for shadows (default 12)
+shadow-offset-x       = -5;     # The left offset for shadows (default -15)
+shadow-offset-y       = -5;     # The top offset for shadows (default -15)
+
+shadow-exclude = [
+	"class_g = 'Alacritty'",
+	"class_g = 'Firefox'",
+	"class_g = 'Thunar'",
+	"class_g = 'mpv'"
+];
+
+#----- WORKSPACE FADING -------------------------------------------------------
+
+fading                = true;
+fade-delta            = 9;
+fade-in-step          = 0.02;
+fade-out-step         = 0.02;
+frame-opacity         = 1.00;
+inactive-dim          = 0.00;
+
+#----- BLUR -------------------------------------------------------------------
+
+blur-kern             = "3x3box";
+blur-method           = "dual_kawase";
+blur-strength         = 0;
+
+blur-background-exclude = [ 
+#	"class_g = 'Remmina'"
+#	"class_g = 'Nautilus'",
+#	"class_g = 'Alacritty'",
+	"class_g = 'Polybar'",
+	"class_g = 'Firefox'",
+	"class_g = 'Zoom'",
+	"class_g = 'Rofi'",
+	"class_g = 'Dunst'",
+	"class_g = 'Steam'",
+	"class_g = 'Gnome-screenshot'",
+	"class_g = 'mpv'",
+	"class_g = 'Telegram'",
+	"class_g = 'Xfce4-screenshooter'"
+];
+
+#----- ROUNDED CORNERS --------------------------------------------------------
+
+#corner-radius         = 0.0;
+#rounded-corners-exclude = [
+#	"class_g = 'Rofi'",
+#	"class_g = 'Dunst'",
+#	"class_g = 'Polybar'"
+#];
+
+#----- UNUSED OPTIONS ---------------------------------------------------------
+
+#shadow-ignore-shaped  = true;
+#experimental-backends = true;
+#log-level             = "info";
+#round-borders         = 1;
+#blur-background       = false;
+#blur-background-frame = false;
+#blur-background-fixed = false;

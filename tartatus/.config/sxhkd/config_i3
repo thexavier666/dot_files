@@ -1,0 +1,121 @@
+#------------------------------------------------------------------------------
+#----- WINDOW LAYOUT
+#------------------------------------------------------------------------------
+
+alt + shift + q
+	i3-msg kill
+
+alt + shift + r
+	i3-msg restart
+
+alt + c
+	i3-msg split h
+
+alt + v
+	i3-msg split v
+
+alt + w
+	i3-msg layout tabbed
+
+alt + e
+	i3-msg layout toggle split
+
+alt + f
+	i3-msg fullscreen toggle
+
+alt + shift + space
+	i3-msg floating toggle
+
+alt + shift + t
+	i3-msg sticky toggle
+
+alt + space
+	i3-msg focus mode_toggle
+
+super + c
+	i3-msg move position center
+
+#------------------------------------------------------------------------------
+#----- WINDOW CHANGE FOCUS
+#------------------------------------------------------------------------------
+
+alt + {h,j,k,l}
+	i3-msg focus {left,down,up,right}
+
+alt + {Left,Down,Up,Right}
+	i3-msg focus {left,down,up,right}
+
+#------------------------------------------------------------------------------
+#----- CHANGE WORKSPACE 
+#------------------------------------------------------------------------------
+
+alt + {1-9,0}
+	i3-msg workspace {1-9,10}
+
+alt + F{1-4}
+	i3-msg workspace {5-8}
+
+alt + grave
+	i3-msg workspace next_on_output
+
+alt + Tab
+	i3-msg workspace back_and_forth
+
+#------------------------------------------------------------------------------
+#----- WINDOW MOVEMENT
+#------------------------------------------------------------------------------
+
+alt + shift + {h,j,k,l}
+	i3-msg move {left,down,up,right}
+
+alt + shift + {Left,Down,Up,Right}
+	i3-msg move {left,down,up,right}
+
+alt + shift + {1-9,0}
+	i3-msg move container to workspace {1-9,10}
+
+alt + shift + F{1-4}
+	i3-msg move container to workspace {5-8}
+
+#------------------------------------------------------------------------------
+#----- WINDOW SIZE ADJUSTMENT
+#------------------------------------------------------------------------------
+
+alt + ctrl + {h,Left}
+	i3-msg resize shrink width  $i3_RESIZE_DELTA px or $i3_RESIZE_DELTA ppt
+
+alt + ctrl + {j,Down}
+	i3-msg resize grow   height $i3_RESIZE_DELTA px or $i3_RESIZE_DELTA ppt
+
+alt + ctrl + {k,Up}
+	i3-msg resize shrink height $i3_RESIZE_DELTA px or $i3_RESIZE_DELTA ppt
+
+alt + ctrl + {l,Right}
+	i3-msg resize grow   width  $i3_RESIZE_DELTA px or $i3_RESIZE_DELTA ppt
+
+#------------------------------------------------------------------------------
+#----- WINDOW GAP ADJUSTMENT
+#------------------------------------------------------------------------------
+
+super + h
+	i3-msg gaps outer current plus  $i3_GAP_DELTA 
+
+super + j
+	i3-msg gaps inner current minus $i3_GAP_DELTA
+
+super + k
+	i3-msg gaps inner current plus  $i3_GAP_DELTA
+
+super + l
+	i3-msg gaps outer current minus $i3_GAP_DELTA
+
+super + shift + 0
+	i3-msg gaps inner current set $i3_GAP_INNER
+
+super + shift + minus
+	i3-msg gaps inner current minus 10
+
+super + shift + equal
+	i3-msg gaps inner current plus 10
+
+#------------------------------------------------------------------------------
